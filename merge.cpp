@@ -816,7 +816,7 @@ void MeshMergeMaterialRepack::_generate_atlas(const int32_t p_num_meshes, Vector
 	pack_options.bruteForce = true;
 	pack_options.blockAlign = true;
 	pack_options.resolution = 2048;
-	xatlas::PackCharts(atlas, pack_options);
+	xatlas::Generate(atlas, xatlas::ChartOptions(), pack_options);
 }
 
 void MeshMergeMaterialRepack::scale_uvs_by_texture_dimension(const Vector<MeshState> &original_mesh_items, Vector<MeshState> &mesh_items, Vector<Vector<Vector2> > &uv_groups, Array &r_mesh_to_index_to_material, Vector<Vector<ModelVertex> > &r_model_vertices) {
