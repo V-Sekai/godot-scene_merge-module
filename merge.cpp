@@ -816,6 +816,7 @@ void MeshMergeMaterialRepack::_generate_atlas(const int32_t p_num_meshes, Vector
 	pack_options.bruteForce = true;
 	pack_options.blockAlign = true;
 	pack_options.resolution = 2048;
+	pack_options.rotateCharts = false;
 	xatlas::Generate(atlas, xatlas::ChartOptions(), pack_options);
 }
 
@@ -957,7 +958,7 @@ void MeshMergeMaterialRepack::map_mesh_to_index_to_material(const Vector<MeshSta
 			Array mesh = array_mesh->surface_get_arrays(j);
 			Array uvs = mesh[ArrayMesh::ARRAY_TEX_UV];
 			if (!uvs.size()) {
-				array_mesh->mesh_unwrap(Transform(), 2.0f);
+				array_mesh->lightmap_unwrap(Transform(), 2.0f);
 				break;
 			}
 		}
